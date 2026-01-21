@@ -53,6 +53,7 @@ public class AlunoService {
     }
 
     public void deleteAluno(Long id){
+        findById(id);
         try{
             this.alunoRepository.deleteById(id);
         }

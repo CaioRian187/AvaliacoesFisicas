@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Gerenciamento de Alunos</title>
+    <link rel="stylesheet" href="aluno.css">
+</head>
+<body>
+<div class="container">
+    <a href="index.html" class="btn-home">⬅ Voltar ao Início</a>
+    <h1>Academia - Gestão de Alunos</h1>
+
+    <div class="form-section">
+        <h2 id="form-title">Cadastrar Aluno</h2>
+        <form id="aluno-form">
+            <input type="hidden" id="aluno-id">
+
+            <label>Nome:</label>
+            <input type="text" id="nome" placeholder="Nome Completo" required>
+
+            <label>Idade:</label>
+            <input type="number" id="idade" placeholder="Ex: 20" required>
+
+            <label>Sexo:</label>
+            <select id="sexo" required>
+                <option value="" disabled selected>Selecione o sexo...</option>
+                <option value="Masculino">Masculino</option>
+                <option value="Feminino">Feminino</option>
+                <option value="Outro">Outro</option>
+            </select>
+
+            <button type="submit" id="btn-save" style="margin-top: 10px;">Salvar</button>
+            <button type="button" id="btn-cancel" style="display:none; margin-top: 10px;" onclick="resetForm()">Cancelar</button>
+        </form>
+    </div>
+
+    <div class="search-section">
+        <input type="text" id="search-name" placeholder="Buscar por nome...">
+        <button onclick="buscarPorNome()">Buscar</button>
+        <button onclick="listarTodos()" style="background-color: #007bff;">Listar Todos</button>
+    </div>
+
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Idade</th>
+            <th>Sexo</th>
+            <th>Ações</th>
+        </tr>
+        </thead>
+        <tbody id="aluno-table-body"></tbody>
+    </table>
+</div>
+<script src="alunoScript.js"></script>
+</body>
+</html>
