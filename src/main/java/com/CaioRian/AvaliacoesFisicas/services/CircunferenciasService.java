@@ -23,6 +23,14 @@ public class CircunferenciasService {
         return circunferencia.orElseThrow( () -> new NotFoundException("Circunferências de id " + id + " não encontradas."));
     }
 
+    public List<Circunferencias> findAllByAlunoId(Long alunoId){
+        List<Circunferencias> list = this.circunferenciasRepository.findByAluno_id(alunoId);
+        if (list.isEmpty()){
+            throw new NotFoundException("Nehuma circunferência encontrada");
+        }
+        return list;
+    }
+
     public List<Circunferencias> findAll(){
         List<Circunferencias> list = this.circunferenciasRepository.findAll();
         if (list.isEmpty()){

@@ -1,10 +1,17 @@
 package com.CaioRian.AvaliacoesFisicas.models;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -39,5 +46,10 @@ public class Aluno {
     @Column(name = "sexo", nullable = false)
     @NotBlank
     private String sexo;
+
+    @OneToMany(mappedBy = "aluno")
+    @JsonProperty(access = Access.WRITE_ONLY)
+    private List<Circunferencias> circunferencias = new ArrayList<Circunferencias>();
+
 
 }

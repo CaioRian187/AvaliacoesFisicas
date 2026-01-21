@@ -44,6 +44,7 @@ public class AlunoController {
         return ResponseEntity.ok().body(aluno);
     }
 
+
     @GetMapping
     public ResponseEntity<List<Aluno>> findAll(){
         List<Aluno> list = this.alunoService.findAllAlunos();

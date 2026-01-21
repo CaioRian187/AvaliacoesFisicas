@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.CaioRian.AvaliacoesFisicas.models.Circunferencias;
+import com.CaioRian.AvaliacoesFisicas.services.AlunoService;
 import com.CaioRian.AvaliacoesFisicas.services.CircunferenciasService;
 
 import jakarta.validation.Valid;
@@ -31,11 +32,21 @@ public class CircunferenciasController {
     @Autowired
     private CircunferenciasService circunferenciasService;
 
+    @Autowired
+    private AlunoService alunoService;
+
     @GetMapping("/{id}")
     public ResponseEntity<Circunferencias> findById(@PathVariable Long id){
         Circunferencias circunferencias = this.circunferenciasService.findById(id);
 
         return ResponseEntity.ok().body(circunferencias);
+    }
+
+    @GetMapping("/aluno/{id_aluno}")
+    public ResponseEntity<List<Circunferencias>> findAllByAlunoId(@PathVariable Long id_aluno){
+        this.alunoService.findById(id_aluno);
+        List<Circunferencias> list = this.circunferenciasService.findAllByAlunoId(id_aluno);
+        return ResponseEntity.ok().body(list);
     }
 
     @GetMapping
