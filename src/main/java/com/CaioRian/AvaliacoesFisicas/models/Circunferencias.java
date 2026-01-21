@@ -63,14 +63,6 @@ public class Circunferencias {
     @NotNull
     private Double abdommen;
 
-    @Column(name = "coxaEsquerda", nullable = false)
-    @NotNull
-    private Double coxaEsquerda;
-
-    @Column(name = "coxaDireita", nullable = false)
-    @NotNull
-    private Double coxaDireita;
-
     @Column(name = "coxaProximalEsquerda", nullable = false)
     @NotNull
     private Double coxaProximalEsquerda;
@@ -78,6 +70,22 @@ public class Circunferencias {
     @Column(name = "coxaProximalDireita", nullable = false)
     @NotNull
     private Double coxaProximalDireita;
+
+    @Column(name = "coxaMedialEsquerda", nullable = false)
+    @NotNull
+    private Double coxaMedialEsquerda;
+
+    @Column(name = "coxaMedialDireita", nullable = false)
+    @NotNull
+    private Double coxaMedialDireita;
+
+    @Column(name = "coxaDistalEsquerda", nullable = false)
+    @NotNull
+    private Double coxaDistalEsquerda;
+
+    @Column(name = "coxaDistalDireita", nullable = false)
+    @NotNull
+    private Double coxaDistalDireita;
 
     @Column(name = "panturrilhaEsquerda", nullable = false)
     @NotNull

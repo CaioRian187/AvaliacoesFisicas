@@ -56,10 +56,12 @@ public class CircunferenciasService {
         newCircunferencias.setQuadril(circunferencias.getQuadril());
         newCircunferencias.setPeitoral(circunferencias.getPeitoral());
         newCircunferencias.setAbdommen(circunferencias.getAbdommen());
-        newCircunferencias.setCoxaEsquerda(circunferencias.getCoxaEsquerda());
-        newCircunferencias.setCoxaDireita(circunferencias.getCoxaDireita());
         newCircunferencias.setCoxaProximalEsquerda(circunferencias.getCoxaProximalEsquerda());
         newCircunferencias.setCoxaProximalDireita(circunferencias.getCoxaProximalDireita());
+        newCircunferencias.setCoxaMedialEsquerda(circunferencias.getCoxaMedialEsquerda());
+        newCircunferencias.setCoxaMedialDireita(circunferencias.getCoxaMedialDireita());
+        newCircunferencias.setCoxaDistalEsquerda(circunferencias.getCoxaDistalEsquerda());
+        newCircunferencias.setCoxaDistalDireita(circunferencias.getCoxaDistalDireita());
         newCircunferencias.setPanturrilhaEsquerda(circunferencias.getPanturrilhaEsquerda());
         newCircunferencias.setPanturrilhaDireita(circunferencias.getPanturrilhaDireita());
         newCircunferencias.setBracoRelaxadoEsquerdo(circunferencias.getBracoRelaxadoEsquerdo());

@@ -2,6 +2,34 @@ const API_URL = "http://localhost:8080/aluno";
 
 document.getElementById('aluno-form').addEventListener('submit', salvarAluno);
 
+function renderizarTabela(alunos) {
+    const tbody = document.getElementById('aluno-table-body');
+    tbody.innerHTML = "";
+
+    if (!Array.isArray(alunos)) return;
+
+    alunos.forEach(a => {
+        tbody.innerHTML += `
+            <tr>
+                <td>${a.id}</td>
+                <td>${a.nome}</td>
+                <td>${a.idade}</td>
+                <td>${a.sexo}</td>
+                <td>
+                    <button class="btn-edit" onclick="prepararEdicao(${a.id}, '${a.nome}', ${a.idade}, '${a.sexo}')">Editar</button>
+                    <button class="btn-delete" onclick="excluirAluno(${a.id})">Excluir</button>
+                    <button onclick="verAvaliacoes(${a.id})" style="background-color: #007bff; color: white;">Avaliações</button>
+                </td>
+            </tr>
+        `;
+    });
+}
+
+function verAvaliacoes(id) {
+    // Redireciona para a página de circunferências passando o ID na URL
+    window.location.href = `circunferencias.html?alunoId=${id}`;
+}
+
 // Lista apenas quando o botão for clicado
 async function listarTodos() {
     try {

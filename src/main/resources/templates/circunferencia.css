@@ -1,0 +1,163 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: sans-serif;
+}
+
+.main-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group-section {
+    padding: 20px;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.section-blue {
+    border-top: 5px solid #007bff;
+}
+
+.section-orange {
+    border-top: 5px solid #fd7e14;
+}
+
+.section-green {
+    border-top: 5px solid #28a745;
+}
+
+.form-group-section h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.double-input {
+    display: flex;
+    gap: 10px;
+}
+
+.double-input div {
+    flex: 1;
+}
+
+.form-actions {
+    margin-top: 20px;
+}
+
+#btn-save {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#btn-cancel {
+    background: #6c757d;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-home {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+/* Tabela */
+.evolution-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 0.85em;
+}
+
+.evolution-table th,
+.evolution-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.param-column {
+    text-align: left;
+    background: #f8f9fa;
+    font-weight: bold;
+    width: 150px;
+}
+
+.diff-text {
+    font-size: 0.8em;
+    margin-left: 5px;
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-weight: bold;
+}
+
+.diff-pos {
+    background: #ffdada;
+    color: #a94442;
+}
+
+.diff-neg {
+    background: #dff0d8;
+    color: #3c763d;
+}
+
+.btn-edit-small {
+    background: #e3f2fd;
+    color: #1976d2;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.btn-delete-small {
+    background: #ffebee;
+    color: #d32f2f;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+select {
+    width: 100%;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    background-color: #fff;
+}
+
+select:focus {
+    outline: none;
+    border-color: #007bff;
+}
