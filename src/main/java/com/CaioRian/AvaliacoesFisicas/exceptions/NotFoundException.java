@@ -1,4 +1,4 @@
-package com.CaioRian.exceptions;
+package com.CaioRian.AvaliacoesFisicas.exceptions;
 
 public class NotFoundException extends RuntimeException{
     public NotFoundException(String msg){

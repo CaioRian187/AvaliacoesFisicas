@@ -1,4 +1,4 @@
-package com.CaioRian.exceptions;
+package com.CaioRian.AvaliacoesFisicas.exceptions;
 
 import org.springframework.http.HttpStatus;
 
