@@ -36,5 +36,8 @@ public class Aluno {
     @NotNull
     private Integer idade;
 
+    @Column(name = "sexo", nullable = false)
+    @NotBlank
+    private String sexo;
 
 }
