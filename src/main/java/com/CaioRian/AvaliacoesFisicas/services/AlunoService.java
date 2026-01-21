@@ -28,7 +28,7 @@ public class AlunoService {
         return aluno.orElseThrow( () -> new NotFoundException("Aluno de id " + id + " não encontrado."));
     }
 
-    public List<Aluno> findAll(){
+    public List<Aluno> findAllAlunos(){
         List<Aluno> list = this.alunoRepository.findAll();
         if (list.isEmpty()){
             throw new NotFoundException("Nenhum aluno encontrado.");
