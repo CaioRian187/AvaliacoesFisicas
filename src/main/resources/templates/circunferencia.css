@@ -161,3 +161,45 @@ select:focus {
     outline: none;
     border-color: #007bff;
 }
+
+/* Botão Editar (Verde) */
+.btn-edit-header {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.btn-edit-header:hover {
+    background: #218838;
+}
+
+/* Botão Excluir (Vermelho) */
+.btn-delete-header {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.btn-delete-header:hover {
+    background: #c82333;
+}
+
+/* Ajuste adicional para o container das ações no topo da tabela */
+.header-actions {
+    display: flex;
+    gap: 5px;
+    margin-top: 8px;
+    justify-content: center;
+}

@@ -38,51 +38,57 @@ document.getElementById('circ-form').addEventListener('submit', salvarCircunfere
 async function salvarCircunferencia(event) {
     event.preventDefault();
 
+    const id = document.getElementById('circ-id').value;
     const alunoId = document.getElementById('aluno-id').value;
 
     const dados = {
         data: document.getElementById('data').value,
-        altura: +document.getElementById('altura').value,
-        peso: +document.getElementById('peso').value,
-        ombro: +document.getElementById('ombro').value,
-        cintura: +document.getElementById('cintura').value,
-        quadril: +document.getElementById('quadril').value,
-        peitoral: +document.getElementById('peitoral').value,
-        abdommen: +document.getElementById('abdommen').value,
-
-        coxaProximalEsquerda: +document.getElementById('coxaProximalEsquerda').value,
-        coxaProximalDireita: +document.getElementById('coxaProximalDireita').value,
-        coxaMedialEsquerda: +document.getElementById('coxaMedialEsquerda').value,
-        coxaMedialDireita: +document.getElementById('coxaMedialDireita').value,
-        coxaDistalEsquerda: +document.getElementById('coxaDistalEsquerda').value,
-        coxaDistalDireita: +document.getElementById('coxaDistalDireita').value,
-
-        panturrilhaEsquerda: +document.getElementById('panturrilhaEsquerda').value,
-        panturrilhaDireita: +document.getElementById('panturrilhaDireita').value,
-
-        bracoRelaxadoEsquerdo: +document.getElementById('bracoRelaxadoEsquerdo').value,
-        bracoRelaxadoDireito: +document.getElementById('bracoRelaxadoDireito').value,
-        bracoContraidoEsquerdo: +document.getElementById('bracoContraidoEsquerdo').value,
-        bracoContraidoDireito: +document.getElementById('bracoContraidoDireito').value,
-
-        antebraçoEsquerdo: +document.getElementById('antebraçoEsquerdo').value,
-        antebraçoDireito: +document.getElementById('antebraçoDireito').value,
-
-        aluno: { id: alunoId }
+        peso: parseFloat(document.getElementById('peso').value),
+        altura: parseFloat(document.getElementById('altura').value),
+        ombro: parseFloat(document.getElementById('ombro').value),
+        peitoral: parseFloat(document.getElementById('peitoral').value),
+        cintura: parseFloat(document.getElementById('cintura').value),
+        abdommen: parseFloat(document.getElementById('abdommen').value),
+        quadril: parseFloat(document.getElementById('quadril').value),
+        bracoRelaxadoEsquerdo: parseFloat(document.getElementById('bracoRelaxadoEsquerdo').value),
+        bracoRelaxadoDireito: parseFloat(document.getElementById('bracoRelaxadoDireito').value),
+        bracoContraidoEsquerdo: parseFloat(document.getElementById('bracoContraidoEsquerdo').value),
+        bracoContraidoDireito: parseFloat(document.getElementById('bracoContraidoDireito').value),
+        antebraçoEsquerdo: parseFloat(document.getElementById('antebraçoEsquerdo').value),
+        antebraçoDireito: parseFloat(document.getElementById('antebraçoDireito').value),
+        coxaProximalEsquerda: parseFloat(document.getElementById('coxaProximalEsquerda').value),
+        coxaProximalDireita: parseFloat(document.getElementById('coxaProximalDireita').value),
+        coxaMedialEsquerda: parseFloat(document.getElementById('coxaMedialEsquerda').value),
+        coxaMedialDireita: parseFloat(document.getElementById('coxaMedialDireita').value),
+        coxaDistalEsquerda: parseFloat(document.getElementById('coxaDistalEsquerda').value),
+        coxaDistalDireita: parseFloat(document.getElementById('coxaDistalDireita').value),
+        panturrilhaEsquerda: parseFloat(document.getElementById('panturrilhaEsquerda').value),
+        panturrilhaDireita: parseFloat(document.getElementById('panturrilhaDireita').value),
+        aluno: { id: parseInt(alunoId) }
     };
 
-    const method = avaliacaoEditandoId ? "PUT" : "POST";
-    const url = avaliacaoEditandoId ? `${API_URL}/${avaliacaoEditandoId}` : API_URL;
+    // Define se é atualização ou criação
+    const method = id ? 'PUT' : 'POST';
+    const url = id ? `${API_URL}/${id}` : API_URL;
 
-    await fetch(url, {
-        method,
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(dados)
-    });
+    try {
+        const response = await fetch(url, {
+            method: method,
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(dados)
+        });
 
-    alert("Avaliação salva com sucesso!");
-    resetForm();
-    carregarEvolucao();
+        if (response.ok) {
+            alert(id ? "Avaliação atualizada!" : "Avaliação salva!");
+            resetForm(); // Limpa o formulário e o ID oculto
+            carregarEvolucao(); // Atualiza a tabela
+        } else {
+            alert("Erro ao salvar dados.");
+        }
+    } catch (error) {
+        console.error("Erro:", error);
+        alert("Erro de conexão com o servidor.");
+    }
 }
 
 // =====================
@@ -112,15 +118,15 @@ function renderizarTabela(lista) {
 
     // 2. Mapeamento de campos (Título amigável vs Nome no Banco)
     const campos = [
-        ["Peso", "peso"], ["Altura", "altura"], ["Ombro", "ombro"], ["Peitoral", "peitoral"],
+        ["Peso", "peso"], ["Altura", "altura"],["IMC", "imc"], ["Ombro", "ombro"], ["Peitoral", "peitoral"],
         ["Cintura", "cintura"], ["Abdômen", "abdommen"], ["Quadril", "quadril"],
-        ["Braço Relax E", "bracoRelaxadoEsquerdo"], ["Braço Relax D", "bracoRelaxadoDireito"],
-        ["Braço Contr E", "bracoContraidoEsquerdo"], ["Braço Contr D", "bracoContraidoDireito"],
-        ["Antebraço E", "antebraçoEsquerdo"], ["Antebraço D", "antebraçoDireito"],
-        ["Coxa Prox E", "coxaProximalEsquerda"], ["Coxa Prox D", "coxaProximalDireita"],
-        ["Coxa Med E", "coxaMedialEsquerda"], ["Coxa Med D", "coxaMedialDireita"],
-        ["Coxa Dist E", "coxaDistalEsquerda"], ["Coxa Dist D", "coxaDistalDireita"],
-        ["Panturrilha E", "panturrilhaEsquerda"], ["Panturrilha D", "panturrilhaDireita"]
+        ["Braço Relaxado Esquerdo", "bracoRelaxadoEsquerdo"], ["Braço Relaxado Direito", "bracoRelaxadoDireito"],
+        ["Braço Contraído Esquerdo", "bracoContraidoEsquerdo"], ["Braço Contraído Direito", "bracoContraidoDireito"],
+        ["Antebraço Esquerdo", "antebraçoEsquerdo"], ["Antebraço Direito", "antebraçoDireito"],
+        ["Coxa Proximal Esquerda", "coxaProximalEsquerda"], ["Coxa Proximal Direita", "coxaProximalDireita"],
+        ["Coxa Medial Esquerda", "coxaMedialEsquerda"], ["Coxa Medial Direita", "coxaMedialDireita"],
+        ["Coxa Distal Esquerda", "coxaDistalEsquerda"], ["Coxa Distal Direita", "coxaDistalDireita"],
+        ["Panturrilha Esquerda", "panturrilhaEsquerda"], ["Panturrilha Direita", "panturrilhaDireita"]
     ];
 
     let html = `<table class="evolution-table"><thead><tr><th class="param-column">Medidas</th>`;
@@ -175,21 +181,49 @@ function renderizarTabela(lista) {
 // =====================
 // EDITAR
 // =====================
-async function editar(id) {
-    const response = await fetch(`${API_URL}/${id}`);
-    const a = await response.json();
+function prepararEdicao(item) {
+    // 1. Preenche o ID oculto para o script saber que é uma edição
+    document.getElementById('circ-id').value = item.id;
 
-    avaliacaoEditandoId = id;
+    // 2. Muda o título do formulário para dar feedback visual
+    document.getElementById('form-title').textContent = "Editando Avaliação";
 
-    document.getElementById('aluno-id').value = a.aluno.id;
-    document.getElementById('data').value = a.data;
+    // 3. Preenche os campos básicos
+    document.getElementById('aluno-id').value = item.aluno.id;
+    document.getElementById('data').value = item.data;
+    document.getElementById('peso').value = item.peso;
+    document.getElementById('altura').value = item.altura;
 
-    Object.keys(a).forEach(k => {
-        if (document.getElementById(k)) {
-            document.getElementById(k).value = a[k];
-        }
-    });
+    // 4. Preenche as medidas de tronco
+    document.getElementById('ombro').value = item.ombro;
+    document.getElementById('peitoral').value = item.peitoral;
+    document.getElementById('cintura').value = item.cintura;
+    document.getElementById('abdommen').value = item.abdommen;
+    document.getElementById('quadril').value = item.quadril;
 
+    // 5. Preenche membros superiores
+    document.getElementById('bracoRelaxadoEsquerdo').value = item.bracoRelaxadoEsquerdo;
+    document.getElementById('bracoRelaxadoDireito').value = item.bracoRelaxadoDireito;
+    document.getElementById('bracoContraidoEsquerdo').value = item.bracoContraidoEsquerdo;
+    document.getElementById('bracoContraidoDireito').value = item.bracoContraidoDireito;
+    document.getElementById('antebraçoEsquerdo').value = item.antebraçoEsquerdo;
+    document.getElementById('antebraçoDireito').value = item.antebraçoDireito;
+
+    // 6. Preenche membros inferiores
+    document.getElementById('coxaProximalEsquerda').value = item.coxaProximalEsquerda;
+    document.getElementById('coxaProximalDireita').value = item.coxaProximalDireita;
+    document.getElementById('coxaMedialEsquerda').value = item.coxaMedialEsquerda;
+    document.getElementById('coxaMedialDireita').value = item.coxaMedialDireita;
+    document.getElementById('coxaDistalEsquerda').value = item.coxaDistalEsquerda;
+    document.getElementById('coxaDistalDireita').value = item.coxaDistalDireita;
+    document.getElementById('panturrilhaEsquerda').value = item.panturrilhaEsquerda;
+    document.getElementById('panturrilhaDireita').value = item.panturrilhaDireita;
+
+    // 7. Mostra o botão de cancelar (opcional, mas recomendado)
+    const btnCancel = document.getElementById('btn-cancel');
+    if (btnCancel) btnCancel.style.display = "inline-block";
+
+    // 8. Rola a tela para o topo para o usuário ver o formulário preenchido
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
@@ -207,8 +241,12 @@ async function excluir(id) {
 // RESET
 // =====================
 function resetForm() {
-    avaliacaoEditandoId = null;
     document.getElementById('circ-form').reset();
+    document.getElementById('circ-id').value = "";
+    document.getElementById('form-title').textContent = "Nova Avaliação";
+    
+    const btnCancel = document.getElementById('btn-cancel');
+    if (btnCancel) btnCancel.style.display = "none";
 }
 
 // =====================
