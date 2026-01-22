@@ -43,6 +43,9 @@ public class Circunferencias {
     @NotNull
     private Double peso;
 
+    @Column(name = "imc", nullable = true)
+    private Double imc;
+
     @Column(name = "ombro", nullable = false)
     @NotNull
     private Double ombro;

@@ -41,6 +41,7 @@ public class CircunferenciasService {
 
     @Transactional
     public void createCircunferencia(Circunferencias circunferencias){
+        circunferencias.setImc(circunferencias.getPeso()/(circunferencias.getAltura()*circunferencias.getAltura()));
         this.circunferenciasRepository.save(circunferencias);
     }
 
@@ -51,6 +52,7 @@ public class CircunferenciasService {
         newCircunferencias.setData(circunferencias.getData());
         newCircunferencias.setAltura(circunferencias.getAltura());
         newCircunferencias.setPeso(circunferencias.getPeso());
+        newCircunferencias.setImc(circunferencias.getPeso()/(circunferencias.getAltura()*circunferencias.getAltura()));
         newCircunferencias.setOmbro(circunferencias.getOmbro());
         newCircunferencias.setCintura(circunferencias.getCintura());
         newCircunferencias.setQuadril(circunferencias.getQuadril());
