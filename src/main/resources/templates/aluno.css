@@ -1,7 +1,12 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
+    background-color: #A2D2FF;
     padding: 20px;
+}
+
+h1,
+h2 {
+    color: #000080;
 }
 
 .container {
@@ -23,6 +28,7 @@ form {
 label {
     margin-top: 10px;
     font-weight: bold;
+    color: #000080;
 }
 
 input,
@@ -38,7 +44,7 @@ button {
     cursor: pointer;
     border: none;
     border-radius: 4px;
-    background: #28a745;
+    background: #000080;
     color: white;
 }
 
@@ -47,12 +53,12 @@ button:hover {
 }
 
 .btn-delete {
-    background: #dc3545;
+    background: #000080;
 }
 
 .btn-edit {
-    background: #ffc107;
-    color: black;
+    background: #000080;
+    color: white;
 }
 
 .search-section {
@@ -71,11 +77,18 @@ table {
     margin-top: 20px;
 }
 
-th,
+th {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+    color: #000080;
+}
+
 td {
     border: 1px solid #ddd;
     padding: 12px;
     text-align: left;
+    color: black;
 }
 
 th {
@@ -84,12 +97,12 @@ th {
 
 .btn-home {
     text-decoration: none;
-    color: #333;
+    color: #000080;
     font-weight: bold;
     display: inline-block;
     margin-bottom: 10px;
 }
 
 .btn-home:hover {
-    color: #28a745;
+    opacity: 0.8;
 }

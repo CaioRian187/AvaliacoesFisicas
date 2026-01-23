@@ -117,6 +117,18 @@ select {
     opacity: 0.8;
 }
 
+.btn-delete-header {
+    background: #000080;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
 .btn-home {
     text-decoration: none;
     color: #000080;

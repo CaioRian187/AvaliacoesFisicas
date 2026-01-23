@@ -51,5 +51,8 @@ public class Aluno {
     @JsonProperty(access = Access.WRITE_ONLY)
     private List<Circunferencias> circunferencias = new ArrayList<Circunferencias>();
 
-
+    @OneToMany(mappedBy = "aluno")
+    @JsonProperty(access = Access.WRITE_ONLY)
+    private List<DobrasCutaneas> dobrasCutaneas = new ArrayList<DobrasCutaneas>();
+    
 }

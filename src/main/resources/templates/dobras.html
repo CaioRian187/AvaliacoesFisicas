@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Evolução Física - Dobras Cutâneas</title>
+    <link rel="stylesheet" href="dobras.css"> </head>
+<body>
+<div class="container">
+    <a href="index.html" class="btn-home">⬅ Voltar ao Início</a>
+    <h1>Avaliações Físicas (Dobras Cutâneas)</h1>
+
+    <div class="form-section">
+        <h2 id="form-title">Nova Avaliação de Dobras</h2>
+
+        <form id="dobras-form">
+            <input type="hidden" id="dobras-id">
+
+            <div class="main-grid">
+                <div class="column">
+                    <div class="form-group-section section-blue" style="margin: 0; height: 420px;">
+                        <h3>Geral e Tronco</h3>
+
+                        <label for="aluno-id">Aluno:</label>
+                        <select id="aluno-id" required>
+                            <option value="" disabled selected>Carregando alunos...</option>
+                        </select>
+
+                        <label for="data">Data:</label>
+                        <input type="date" id="data" required>
+
+                        <label>Subescapular (mm):</label>
+                        <input type="number" step="0.1" id="subescapular" required>
+                        
+                        <label>Suprailiaca (mm):</label>
+                        <input type="number" step="0.1" id="suprailiaca" required>
+                        
+                        <label>Abdominal (mm):</label>
+                        <input type="number" step="0.1" id="abdominal" required>
+
+                        <label>Peitoral (mm):</label>
+                        <input type="number" step="0.1" id="peitoral" required>
+                    </div>
+                </div>
+
+                <div class="column">
+                    <div class="form-group-section section-orange">
+                        <h3>Membros Superiores</h3>
+                        <label>Bíceps (mm):</label>
+                        <input type="number" step="0.1" id="biceps" required>
+                        
+                        <label>Tríceps (mm):</label>
+                        <input type="number" step="0.1" id="triceps" required>
+                    </div>
+
+                    <div class="form-group-section section-green" style="margin-top:20px;">
+                        <h3>Membros Inferiores</h3>
+                        <label>Coxa (mm):</label>
+                        <input type="number" step="0.1" id="coxa" required>
+                        
+                        <label>Panturrilha Medial (mm):</label>
+                        <input type="number" step="0.1" id="panturrilhaMedial" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" id="btn-save">Salvar Dobras</button>
+                <button type="button" id="btn-cancel" style="display:none;" onclick="resetForm()">Cancelar</button>
+            </div>
+        </form>
+    </div>
+
+    <hr>
+
+    <div class="search-section">
+        <label for="aluno-id-search">Ver evolução de:</label>
+        <select id="aluno-id-search" onchange="carregarEvolucao()">
+            <option value="">Selecione um aluno...</option>
+        </select>
+    </div>
+
+    <div id="tabela-container"></div>
+</div>
+
+<script src="dobras.js"></script>
+</body>
+</html>
