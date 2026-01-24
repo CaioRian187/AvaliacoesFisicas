@@ -10,9 +10,9 @@ public class ControllerNavegacao {
         return "aluno"; // Aqui deve ser o nome exato do arquivo .html sem a extensão
     }
 
-    @GetMapping("/antropometria")
+    @GetMapping("/circunferencia")
     public String paginaAntropometria() {
-        return "antropometria";
+        return "circunferencia";
     }
 
     @GetMapping("/dobras-cutaneas")
