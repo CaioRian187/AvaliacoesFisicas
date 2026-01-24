@@ -24,7 +24,7 @@ import jakarta.validation.Valid;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/aluno")
+@RequestMapping("/api/aluno")
 @Validated
 public class AlunoController {
     
