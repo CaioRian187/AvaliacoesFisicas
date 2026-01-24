@@ -92,6 +92,7 @@ function renderizarTabela(lista) {
         ["Suprailíaca (mm)", "suprailiaca"],
         ["Coxa (mm)", "coxa"],
         ["Panturrilha Medial (mm)", "panturrilhaMedial"],
+        ["Relação cintura quadril" , "relacaoCinturaQuadril"],
         ["% Gordura", "percentualGordura"]
     ];
 

@@ -160,13 +160,13 @@ select {
 }
 
 .diff-pos {
-    background: #ffdada;
-    color: #a94442;
+    background: #dff0d8;
+    color: #3c763d;
 }
 
 .diff-neg {
-    background: #dff0d8;
-    color: #3c763d;
+    background: #ffdada;
+    color: #a94442;
 }
 
 .btn-edit-small {
