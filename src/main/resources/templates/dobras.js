@@ -1,5 +1,5 @@
-const API_URL = "http://localhost:8080/dobrasCutaneas";
-const ALUNOS_API = "http://localhost:8080/aluno";
+const API_URL = "/dobrasCutaneas";
+const ALUNOS_API = "/aluno";
 
 async function carregarListaAlunos() {
     try {

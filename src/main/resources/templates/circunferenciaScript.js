@@ -1,5 +1,5 @@
-const API_URL = "http://localhost:8080/circunferencias";
-const ALUNOS_API = "http://localhost:8080/aluno";
+const API_URL = "/circunferencias";
+const ALUNOS_API = "/aluno";
 
 let avaliacaoEditandoId = null;
 

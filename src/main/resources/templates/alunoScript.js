@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:8080/aluno";
+const API_URL = "/aluno";
 
 document.getElementById('aluno-form').addEventListener('submit', salvarAluno);
 
